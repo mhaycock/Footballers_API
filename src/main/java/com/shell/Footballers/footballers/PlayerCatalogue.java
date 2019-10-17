@@ -2,6 +2,7 @@ package com.shell.Footballers.footballers;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
+
 import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -32,4 +33,27 @@ public class PlayerCatalogue {
             System.out.println(e);
         }
     }
-}
+
+
+    public List<Player> getPlayerByName(String name) throws Exception{
+
+        for (Player player : players) {
+
+            if (player.getName().toLowerCase().contains(name.toLowerCase())) {
+
+                return List.of(player);
+
+            }
+        }
+        throw new Exception("No player found fool");
+    }
+
+        public List<Player> getAllPlayers() {
+
+            return this.players;
+
+        }
+
+    }
+
+
